@@ -13,10 +13,14 @@ router.post("/login", async (req, res) => {
 
   try {
     const jwtToken = user.generateJWT();
-    return res.status(200).send({ jwtToken });
+    return res.status(200).send({ jwtToken } + "//" );
   } catch (e) {
     return res.status(400).send("Login error");
   }
 });
+
+router.put('/admin', async (req, res) => {
+  
+})
 
 module.exports = router;

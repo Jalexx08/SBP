@@ -20,21 +20,21 @@ export class AuthService {
   login(user: any) {
     return this.http.post(this.env + 'auth/login', user);
   }
+  admin(user: any) {
+    return this.http.put(this.env + 'auth/admin', user)
+  }
 
   loggedIn() {
     return !!localStorage.getItem('token');
   }
 
   getToken() {
-
     return localStorage.getItem('token');
   }
 
   logOut() {
-
     localStorage.removeItem('token');
     this.router.navigate(['/login']);
-
   }
 
 
