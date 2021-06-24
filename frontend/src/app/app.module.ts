@@ -27,6 +27,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { MatSelectModule } from "@angular/material/select";
 
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -60,6 +61,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatCardModule,
     MatIconModule,
     MatExpansionModule,
+    MatSelectModule,
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule

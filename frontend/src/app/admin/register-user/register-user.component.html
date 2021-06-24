@@ -1,1 +1,46 @@
-<p>register-user works!</p>
+<div class="form">
+    <mat-card class="card">
+        <mat-card-title>Register user</mat-card-title>
+        <div class="col-12 col-lg-12" *ngIf="successMessage">
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <div class="alert-message">
+                    {{successMessage}}
+                </div>
+                <button type="button" class="close" (click)="closeX()" data-dismiss="alert" aria-label="Close"><span
+                        aria-hidden="true">X</span></button>
+            </div>
+        </div>
+
+        <div class="col-12 col-lg-12" *ngIf="errorMessage">
+            <div class="alert alert-danger alert-dismissible" role="alert">
+                <div class="alert-message">
+                    {{errorMessage}}
+                </div>
+                <button type="button" class="close" (click)="closeX()" data-dismiss="alert" aria-label="Close"><span
+                        aria-hidden="true">X</span></button>
+            </div>
+        </div>
+        <mat-card-content>
+            <div class="container">
+                <mat-form-field>
+                    <input [(ngModel)]=registerData.name matInput type="" placeholder="Name" required />
+                </mat-form-field>
+                <mat-form-field>
+                    <input [(ngModel)]=registerData.email matInput type="" placeholder="Email" required />
+                </mat-form-field>
+                <mat-form-field>
+                    <input [(ngModel)]=registerData.password matInput type="password" placeholder="Password" required />
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>ROL:</mat-label>
+                    <mat-select [(ngModel)]=registerData.roleId *ngIf="roleData.length">
+                        <mat-option *ngFor="let role of roleData" [value]="role._id">{{role.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+        <mat-card-actions>
+            <button (click)="registerUser()" mat-raised-button class="button colorButton">Register</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
