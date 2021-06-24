@@ -7,6 +7,13 @@ a{
    
 }
 
+.options {
+    display:flex;
+    flex-direction:row;
+}
+
 .bgHeader {
     background-color: #363030;
+    display: flex;
+    flex-direction: row;
 }

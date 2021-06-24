@@ -9,33 +9,35 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   private env: String;
+  public admin: boolean;
 
   constructor(private http: HttpClient, private router: Router) {
     this.env = environment.APP_URL;
+    this.admin = false;
   }
-
   registerUser(user: any) {
     return this.http.post(this.env + 'user/registerUser', user);
   }
   login(user: any) {
     return this.http.post(this.env + 'auth/login', user);
   }
-  admin(user: any) {
-    return this.http.put(this.env + 'auth/admin', user)
+  nowAdmin() {
+    this.admin = true;
   }
 
+  isAdmin() {
+    return this.admin
+  }
   loggedIn() {
     return !!localStorage.getItem('token');
   }
-
   getToken() {
     return localStorage.getItem('token');
   }
 
   logOut() {
     localStorage.removeItem('token');
+    this.admin = false;
     this.router.navigate(['/login']);
   }
-
-
 }
