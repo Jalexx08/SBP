@@ -21,13 +21,7 @@ export class AuthService {
   login(user: any) {
     return this.http.post(this.env + 'auth/login', user);
   }
-  nowAdmin() {
-    this.admin = true;
-  }
 
-  isAdmin() {
-    return this.admin
-  }
   loggedIn() {
     return !!localStorage.getItem('token');
   }

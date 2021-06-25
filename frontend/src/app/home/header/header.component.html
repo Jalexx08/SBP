@@ -9,10 +9,10 @@
   </div>
   <div class="options" *ngIf="auth.loggedIn()" >
     <ul>
-      <a routerLink="registerUser" *ngIf="auth.isAdmin()">Register Users</a>
+      <a routerLink="registerUser" *ngIf="auth.admin">Register Users</a>
     </ul>
     <ul>
-      <a routerLink="listUsers" *ngIf="auth.isAdmin()">List Users</a>
+      <a routerLink="listUsers" *ngIf="auth.admin">List Users</a>
     </ul>
   </div>
   
