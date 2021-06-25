@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from "../../services/admin.service";
 import { Router } from "@angular/router";
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-list-role',
@@ -11,7 +12,7 @@ export class ListRoleComponent implements OnInit {
   public roleData: any;
   public errorMessage:String; 
 
-  constructor(private admin: AdminService, private route: Router) {
+  constructor(private admin: AdminService, private route: Router, public auth: AuthService) {
     this.errorMessage ='';
     this.roleData = {};
    }
