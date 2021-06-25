@@ -13,7 +13,8 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) {
     this.env = environment.APP_URL;
-    this.admin = false;
+    this.admin = !!localStorage.getItem('admin');
+
   }
   registerUser(user: any) {
     return this.http.post(this.env + 'user/registerUser', user);
@@ -31,7 +32,8 @@ export class AuthService {
 
   logOut() {
     localStorage.removeItem('token');
-    this.admin = false;
+    localStorage.removeItem('admin');
+
     this.router.navigate(['/login']);
   }
 }

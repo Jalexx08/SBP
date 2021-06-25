@@ -34,7 +34,9 @@ export class LoginComponent implements OnInit {
         (res: any) => {
           console.log(res);
           localStorage.setItem('token', res.jwtToken);
-          if(res.role) this.auth.admin = res.role;
+          if (res.role) localStorage.setItem('admin', res.role);
+          this.auth.admin = !!localStorage.getItem('admin');
+
           this.router.navigate(['/listTasks']);
 
         },
