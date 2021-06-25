@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class AuthService {
 
   private env: String;
-  private admin: boolean;
+  public admin: boolean;
 
   constructor(private http: HttpClient, private router: Router) {
     this.env = environment.APP_URL;
