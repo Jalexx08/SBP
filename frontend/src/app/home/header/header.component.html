@@ -1,13 +1,22 @@
 <mat-toolbar class="bgHeader">
-  <ul>
-    <a *ngIf="auth.loggedIn()" routerLink="listTasks">List task</a>
-  </ul>
-  <ul>
-    <a *ngIf="auth.loggedIn()" routerLink="saveTask">Create task</a>
-  </ul>
-  <ul>
-    <a *ngIf="auth.loggedIn()" routerLink="listUser">Admin</a>
-  </ul>
+  <div class="options" *ngIf="auth.loggedIn()">
+    <ul>
+      <a routerLink="listTasks">List task</a>
+    </ul>
+    <ul>
+      <a routerLink="saveTask">Create task</a>
+    </ul>
+  </div>
+  <div class="options" *ngIf="auth.loggedIn()" >
+    <ul>
+      <a routerLink="registerUser" *ngIf="auth.isAdmin()">Register Users</a>
+    </ul>
+    <ul>
+      <a routerLink="listUsers" *ngIf="auth.isAdmin()">List Users</a>
+    </ul>
+  </div>
+  
+
   <span class="headerSpacer"></span>
   <ul>
     <a *ngIf="!auth.loggedIn()" mat-button routerLink="register">Register</a>

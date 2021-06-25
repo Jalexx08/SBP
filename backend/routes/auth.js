@@ -15,9 +15,9 @@ router.post("/login", async (req, res) => {
   try {
     const jwtToken = user.generateJWT();
 
-    const { name } = await Role.findById( user.roleId);
+    const { name } = await Role.findById(user.roleId);
 
-   const role =  ( name == "admin") ? true : false;
+   const role = ( name == "admin") ? true : false;
   
     return res.status(200).send({ jwtToken, role});
   } catch (e) {
