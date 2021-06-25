@@ -24,4 +24,8 @@ export class AdminService {
   listRole() {
     return this.http.get(this.env + "role/listRole");
   }
+
+  registerRole(role: any) {
+    return this.http.post(this.env + "role/registerRole", role)
+  }
 }
