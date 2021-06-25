@@ -49,7 +49,7 @@ const routes: Routes = [
     canActivate: [ AuthGuard]
   },
   {
-    path: 'updateUser',
+    path: 'updateUser/:user?',
     component: UpdateUserComponent,
     canActivate: [ AuthGuard]
   },

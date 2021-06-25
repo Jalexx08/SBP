@@ -42,7 +42,7 @@
                 <td>{{users.roleId.name}}</td>
                 <td>{{users.active}}</td>
                 <td>{{users.date}}</td>
-                <button class="btn" mat-utton mat-flat-button (click)="updateUser()"><mat-icon>edit</mat-icon> update</button>
+                <a routerLink="/updateUser/{{users._id}}" mat-button color="secondary"><mat-icon>edit</mat-icon>  Update</a>
                 <mat-icon color="primary" mat-fab-button (click)="deactivate()">delete</mat-icon>
             </tr>
         </tbody>
