@@ -21,6 +21,11 @@ export class AdminService {
     return this.http.get(this.env + "user/listUsers");
   }
 
+  updateUser(user:any){
+    return this.http.put(this.env + "user/updateUser", user);
+  }
+
+
   listRole() {
     return this.http.get(this.env + "role/listRole");
   }

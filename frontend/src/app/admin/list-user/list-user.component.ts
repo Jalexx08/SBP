@@ -11,7 +11,7 @@ export class ListUserComponent implements OnInit {
   public userData: any;
   public errorMessage:String; 
 
-  constructor(private admin: AdminService, private route: Router) {
+  constructor(private admin: AdminService, private router: Router) {
     this.errorMessage ='';
     this.userData = {};
    }
@@ -28,6 +28,24 @@ export class ListUserComponent implements OnInit {
       }
     )
   }
+
+  updateUser(){
+    this.admin.updateUser(this.userData).subscribe(
+      (res: any) => {
+        console.log(res);
+        this.userData = {};
+        this.router.navigate(['/updateUser']);
+
+      },
+      (err) => {
+
+        console.log(err);
+        this.errorMessage = err.error;
+        this.closeAlert();
+
+      }
+    );}
+
   closeAlert(){
     setTimeout(() => {
       this.errorMessage = '';
