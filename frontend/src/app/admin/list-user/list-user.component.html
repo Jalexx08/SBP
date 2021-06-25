@@ -16,11 +16,12 @@
             <h3>Total users: <span>{{userData.length}}</span></h3>
         </div>
         <div class="col">
-            <a routerLink="/registeUser" mat-button mat-raised-button>
+            <a routerLink="/registerUser" mat-button mat-raised-button>
                 <mat-icon aria-hidden="false" color="accent">add</mat-icon> Add user
             </a>
         </div>
     </div>
+    <p>{{userData.name}}</p>
     <table>
         <thead>
             <tr>
@@ -36,12 +37,12 @@
         <tbody *ngIf="userData.length">
             <tr *ngFor="let users of userData">
                 <td>{{users.name}}</td>
-                <td>{{user.email}}</td>
-                <td>{{user.password}}</td>
-                <td>{{user.roleId}}</td>
-                <td>{{user.active}}</td>
-                <td>{{user.date}}</td>
-                <button class="btn" mat-utton mat-flat-button>update</button>
+                <td>{{users.email}}</td>
+                <td>{{users.password}}</td>
+                <td>{{users.roleId.name}}</td>
+                <td>{{users.active}}</td>
+                <td>{{users.date}}</td>
+                <button class="btn" mat-utton mat-flat-button><mat-icon>edit</mat-icon> update</button>
                 <mat-icon color="primary" mat-fab-button (click)="deactivate()">delete</mat-icon>
             </tr>
         </tbody>

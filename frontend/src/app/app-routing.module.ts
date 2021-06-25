@@ -39,7 +39,7 @@ const routes: Routes = [
     component: RegisterComponent
   },
   {
-    path: 'listUser',
+    path: 'listUsers',
     component: ListUserComponent,
     canActivate: [ AuthGuard]
   },
