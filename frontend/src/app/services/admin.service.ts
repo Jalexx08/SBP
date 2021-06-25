@@ -18,7 +18,7 @@ export class AdminService {
   }
 
   listUsers(){
-    return this.http.get(this.env + "user/listUser");
+    return this.http.get(this.env + "user/listUsers");
   }
 
   listRole() {

@@ -44,7 +44,7 @@ export class RegisterUserComponent implements OnInit {
         (res: any) => {
           console.log(res);
           this.registerData = {};
-          this.router.navigate(['/listUser']);
+          this.router.navigate(['/listUsers']);
         },
         (err) => {
           this.errorMessage = err.error;
