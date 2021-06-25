@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AdminService } from "../../services/admin.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-list-role',
@@ -6,10 +8,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-role.component.css']
 })
 export class ListRoleComponent implements OnInit {
+  public roleData: any;
+  public errorMessage:String;
 
-  constructor() { }
-
-  ngOnInit(): void {
+  constructor(private admin: AdminService, private route: Router) { 
+    this.errorMessage= '';
   }
 
+  ngOnInit(): void {
+    this.admin.listRole().subscribe(
+      (res:any)=>{
+        // console.log(res);
+        this.roleData = res.role;
+      },
+      (err)=>{
+        this.errorMessage = err.error;
+
+      }
+
+    )
+  }
+
+  deactivate(){}
+
+  closeAlert(){
+    setTimeout(() => {
+      this.errorMessage = '';
+    }, 3000);
+  }
+  closeX(){
+      this.errorMessage = '';
+  }
 }
