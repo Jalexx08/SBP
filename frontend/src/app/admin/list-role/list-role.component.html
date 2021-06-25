@@ -1,1 +1,27 @@
-<p>list-role works!</p>
+<div class="list">
+    <mat-card class="card">
+        <mat-card-title>List of role</mat-card-title>
+        <div class="button_container">
+            <button  class="green_text" mat-raised-button>+ Basic</button>
+        </div>
+        <span class="spacer"></span>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr> 
+        </thead>
+        <tbody *ngIf="roleData.length">
+            <tr *ngFor="let role of roleData">
+                <td>{{role.name}}</td>
+                <td>{{role.description}}</td>
+                <td>{{role._id}}</td>
+                <td><mat-icon color="primary" mat-fab-button (click)="deactivate()">delete</mat-icon></td>
+                
+            </tr>
+        </tbody>
+        
+    </mat-card>
+</div>

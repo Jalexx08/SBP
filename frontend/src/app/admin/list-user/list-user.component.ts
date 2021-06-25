@@ -26,7 +26,7 @@ export class ListUserComponent implements OnInit {
       (err) =>{
         this.errorMessage = err.error;
       }
-    )
+    ) 
   }
   closeAlert(){
     setTimeout(() => {
