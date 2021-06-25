@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +7,17 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend';
+
+  @HostListener('window:unload', ['$event'])
+  unloadHandler(event: any) {
+    this.PostCall();
+  }
+  @HostListener('window:beforeunload', ['$event']) 
+  beforeUnloadHander(event: any) {
+    return false;
+  }
+
+  PostCall() {  
+    localStorage.clear()
+  }
 }
