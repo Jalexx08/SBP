@@ -11,11 +11,33 @@ export class ListUserComponent implements OnInit {
   public userData: any;
   public errorMessage:String; 
 
-  constructor() {
+  constructor(private admin: AdminService, private router: Router) {
     this.errorMessage ='';
    }
 
   ngOnInit(): void {
+    this.admin.listUsers().subscribe(
+      (res:any)=>{
+        console.log(res);
+        this.userData = res.user; 
+      }, 
+      (err) =>{
+        this.errorMessage = err.error;
+      }
+    )
   }
+  closeAlert(){
+    setTimeout(() => {
+      this.errorMessage = '';
+    }, 3000);
+  }
+  closeX(){
+    
+  }
+
+  deactivate(){
+
+  }
+
 
 }
